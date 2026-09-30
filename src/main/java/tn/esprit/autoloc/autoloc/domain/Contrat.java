@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "contrat")
@@ -26,4 +28,8 @@ public class Contrat {
     private BigDecimal montantTotal;
 
     private boolean valide;
+
+    @OneToMany(mappedBy = "contrat")
+    private List<Paiement> paiements = new ArrayList<>();
+
 }
